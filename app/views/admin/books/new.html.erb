@@ -1,0 +1,34 @@
+<h1><%= t "add_book_text" %></h1>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= nested_form_for [:admin, @book] do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <%= f.label :category %>
+      <%= f.collection_select :category_id, @categories, :id, :name,
+        {prompt: false}, {class: "form-control"} %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+
+      <%= f.label :author %>
+      <%= f.text_field :author, class: "form-control" %>
+
+      <%= f.label :publish_date %>
+      <%= f.date_select :publish_date, class: "form-control" %><br>
+
+      <%= f.label :page %>
+      <%= f.text_field :page, class: "form-control" %><br>
+
+      <%= f.label :images %>
+
+      <%= f.fields_for :book_photos, html: {multipart: true} do |image_form| %>
+        <%= render "image_fields", image_form: image_form %>
+      <% end %>
+
+      <p><%= f.link_to_add t(:add_image), :book_photos %></p>
+
+      <%= f.submit t(:add_book_text), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

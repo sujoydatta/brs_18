@@ -15,3 +15,23 @@ en:
   system_name: Framgia Book Review System
   view_all_request: View All Requests
   welcome_message: Welcome to
+  welcome_message: "Welcome to"
+  system_name: "Framgia Book Review System"
+  about: "About"
+  contact: "Contact"
+  home: "Home"
+  dev_by: "Developed by"
+  sign_up_now: "Sign up now!"
+  add_book_text: "Add a book"
+  add_image: "Add image"
+  remove_option: "Remove image"
+  add_url: "or image URL"
+  book_added_text: "Book Added"
+  form_contains: "The form contains"
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+    formats:
+      short: "%d-%m-%Y"
