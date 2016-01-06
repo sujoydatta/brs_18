@@ -7,6 +7,8 @@ class Book < ActiveRecord::Base
   has_many :users, through: :user_books
   belongs_to :user
 
+  after_initialize :init_rating
+
   validates :title, presence: true, uniqueness: {case_sensitive: false}
   validates :author, presence: true
   validates :page, presence: true, numericality: {minimum: 1}
@@ -38,5 +40,9 @@ class Book < ActiveRecord::Base
     def ransackable_scopes auth_object = nil
       [:filter_book]
     end
+  end
+
+  def init_rating
+    self.rating = 0 if self.rating.nil?
   end
 end

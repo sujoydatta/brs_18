@@ -19,6 +19,7 @@ class Admin::BooksController < ApplicationController
   end
 
   def show
+    @total_reviewer = Review.total_rater @book.id
   end
 
   def edit

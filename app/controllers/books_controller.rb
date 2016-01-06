@@ -14,5 +14,6 @@ class BooksController < ApplicationController
     @comment = current_user.comments.build
     @user_book = UserBook.find_or_create_by user_id: current_user.id,
       book_id: @book.id
+    @total_reviewer = Review.total_rater @book.id
   end
 end
